@@ -13,13 +13,13 @@ public class SandwichCondimentController {
     }
 
     @GetMapping("/save")
-    public ModelAndView result(@RequestParam(value = "condiment", defaultValue = "") String[] arr) {
+    public ModelAndView result(@RequestParam(value = "condiment", defaultValue = "") String[] listCondiment) {
         ModelAndView modelAndView = new ModelAndView("index");
 
-        if (arr.length == 0) {
+        if (listCondiment.length == 0) {
             modelAndView.addObject("condiment", "No choice yet!");
         } else {
-            modelAndView.addObject("condiment", arr);
+            modelAndView.addObject("condiment", listCondiment);
         }
 
         return modelAndView;
