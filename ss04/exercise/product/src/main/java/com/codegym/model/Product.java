@@ -1,20 +1,28 @@
 package com.codegym.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private double price;
-    private String describe;
+    private String describe1;
     private String producer;
 
     public Product() {
     }
 
-    public Product(int id, String name, double price, String describe, String producer) {
+    public Product(int id, String name, double price, String describe1, String producer) {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.describe = describe;
+        this.describe1 = describe1;
         this.producer = producer;
     }
 
@@ -42,12 +50,12 @@ public class Product {
         this.price = price;
     }
 
-    public String getDescribe() {
-        return describe;
+    public String getDescribe1() {
+        return describe1;
     }
 
-    public void setDescribe(String describe) {
-        this.describe = describe;
+    public void setDescribe1(String describe1) {
+        this.describe1 = describe1;
     }
 
     public String getProducer() {
