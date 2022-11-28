@@ -1,4 +1,4 @@
-package com.codegym.model;
+package com.example.blog.model;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -16,9 +16,9 @@ public class Category {
     public Category() {
     }
 
-    public Category(int id, String nameCategory, Set<Blog> blog) {
+    public Category(int id, String categoryName, Set<Blog> blog) {
         this.id = id;
-        this.categoryName = nameCategory;
+        this.categoryName = categoryName;
         this.blog = blog;
     }
 
@@ -34,15 +34,15 @@ public class Category {
         return categoryName;
     }
 
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
     public Set<Blog> getBlog() {
         return blog;
     }
 
     public void setBlog(Set<Blog> blog) {
         this.blog = blog;
-    }
-
-    public void setCategoryName(String nameCategory) {
-        this.categoryName = nameCategory;
     }
 }

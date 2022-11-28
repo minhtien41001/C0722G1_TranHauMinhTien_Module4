@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Blog List</title>
 </head>
 <body>
-
 <h2>Blog list</h2>
 
-<a th:href="@{/add}">Add new</a><br><br>
+<a th:href="@{/create}">Add new product</a>
 
-<form>
-    <input placeholder="Search by Title..." name="search" type="text"/>
-    <input type="submit" value="Search"/>
-</form>
+<!--<form action="/search" method="get">-->
+<!--    <input type="text" name="name">-->
+<!--    <button type="submit">Search</button>-->
+<!--</form>-->
 
-<p style="color: green" th:text="${mess}"></p>
+<!--<p style="color: green" th:text="${mess}"></p>-->
 
-<table border="1" cellpadding="10">
+<table border="1">
     <tr>
-        <th>#</th>
+        <th>Id</th>
         <th>Title</th>
-        <th>Category</th>
-        <th>Edit</th>
+        <th>Writer</th>
+        <th>Content</th>
+        <th>Data Create</th>
+        <th>Category </th>
+        <th>Edit </th>
         <th>Delete</th>
         <th>View</th>
     </tr>
 
-    <tr th:each="blog, status : ${blogList}">
-        <td th:text="${blogList.number * 5 + status.count}"></td>
+    <tr th:each="blog : ${blogList}">
+        <td th:text="${blog.id}"></td>
         <td th:text="${blog.title}"></td>
-        <td th:if="${blog.category}" th:text="${blog.category.categoryName}"></td>
-        <td th:unless="${blog.category}">non</td>
-        <td><a th:href="@{/edit/__${blog.id}__}">edit</a></td>
-        <td><a th:href="@{/delete/__${blog.id}__}">delete</a></td>
-        <td><a th:href="@{/view/__${blog.id}__}">view</a></td>
+        <td th:text="${blog.writer}"></td>
+        <td th:text="${blog.content}"></td>
+        <td th:text="${blog.dateCreated}"></td>
+        <td th:text="${blog.category.categoryName}"></td>
+<!--        <td><a th:href="@{/edit/__${blog.id}__}">edit</a></td>-->
+<!--        <td><a th:href="@{/delete/__${blog.id}__}">delete</a></td>-->
+<!--        <td><a th:href="@{/view/__${blog.id}__}">view</a></td>-->
     </tr>
 </table>
-<br>
-<div>
-    <a th:href="@{'/'(page=${blogList.number - 1}, search=${search})}" th:if="${blogList.hasPrevious()}">Previous</a>
-    <span th:text="${blogList.number + 1}"></span>/<span th:text="${blogList.totalPages}"></span>
-    <a th:href="@{'/'(page=${blogList.number + 1}, search=${search})}" th:if="${blogList.hasNext()}">Next</a>
-</div>
+<a th:href="@{/blog/list(page=${blogList.number - 1})}" th:if="${blogList.hasPrevious()}">Previous</a>
+<span th:text="${blogList.number+1}+'/'+${blogList.totalPages}"></span>
+<a th:href="@{/blog/list(page=${blogList.number + 1})}" th:if="${blogList.hasNext()}">Next</a>
 </body>
 </html>

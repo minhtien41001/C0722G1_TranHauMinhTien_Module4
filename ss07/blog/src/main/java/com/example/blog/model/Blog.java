@@ -1,4 +1,4 @@
-package com.codegym.model;
+package com.example.blog.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -8,7 +8,7 @@ import java.util.Date;
 @Entity
 public class Blog {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
     private String writer;
@@ -33,14 +33,6 @@ public class Blog {
         this.category = category;
     }
 
-    public String getWriter() {
-        return writer;
-    }
-
-    public void setWriter(String describe) {
-        this.writer = describe;
-    }
-
     public int getId() {
         return id;
     }
@@ -53,24 +45,24 @@ public class Blog {
         return title;
     }
 
-    public void setTitle(String name) {
-        this.title = name;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getWriter() {
+        return writer;
+    }
+
+    public void setWriter(String writer) {
+        this.writer = writer;
     }
 
     public String getContent() {
         return content;
     }
 
-    public void setContent(String producer) {
-        this.content = producer;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public Date getDateCreated() {
@@ -80,4 +72,17 @@ public class Blog {
     public void setDateCreated(Date dateCreated) {
         this.dateCreated = dateCreated;
     }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
+
+
+
+
+
