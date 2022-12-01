@@ -53,7 +53,7 @@ public class BlogController {
     public String update(@ModelAttribute Blog blog, RedirectAttributes redirectAttributes) {
         iBlogService.update(blog);
         redirectAttributes.addFlashAttribute("mess", "Update successful!");
-        return "redirect:/";
+        return "redirect:/blog";
     }
 
     @GetMapping("/delete/{id}")
@@ -67,7 +67,7 @@ public class BlogController {
     public String delete(@ModelAttribute Blog blog,RedirectAttributes redirectAttributes){
         iBlogService.remove(blog.getId());
         redirectAttributes.addFlashAttribute("mess","Remove successful!");
-        return "redirect:/";
+        return "redirect:/blog";
     }
 
     @GetMapping("/view/{id}")
@@ -76,4 +76,6 @@ public class BlogController {
         model.addAttribute("categoryList", iCategoryService.findAllList());
         return "blog/view";
     }
+
+
 }

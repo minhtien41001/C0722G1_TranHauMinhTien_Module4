@@ -9,7 +9,7 @@
 
 <a th:href="@{/}">Back to blog list</a>
 
-<form action="/delete" method="post" th:object="${blog}">
+<form action="/blog/delete" method="post" th:object="${blog}">
     <table>
         <tr>
             <td><input type="hidden" th:field="*{id}" readonly/></td>

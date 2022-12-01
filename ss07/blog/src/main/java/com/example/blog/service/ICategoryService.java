@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface ICategoryService {
     Page<Category> findAll(Pageable pageable);
+
     List<Category> findAllList();
 
     void save(Category category);

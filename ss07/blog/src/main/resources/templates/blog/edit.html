@@ -9,7 +9,7 @@
 
 <a th:href="@{/}">Back to product list</a>
 
-<form action="/update" method="post" th:object="${blog}">
+<form action="/blog/update" method="post" th:object="${blog}">
     <table>
         <tr>
             <td><input type="hidden" th:field="*{id}"/></td>
