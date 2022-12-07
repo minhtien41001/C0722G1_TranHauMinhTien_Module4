@@ -27,7 +27,8 @@
     </tbody>
 </table>
 
-<button id="next">Chuyển trang</button>
+<button class="btn btn-outline-primary" type="button" id="more">Tải thêm </button>
+<button class="btn btn-outline-primary" type="button" id="less">Ít lại </button>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -48,6 +49,32 @@
 <script>
 
     $(document).ready(function () {
+        let page = 0
+        let totalPage
+
+        function checkPage() {
+            if (page === totalPage - 1) {
+                $("#more").hide()
+            } else {
+                $("#more").show()
+            }
+
+        }
+
+        $("#more").click(function () {
+            page = page + 1
+            if (page <= totalPage - 1) {
+                init();
+            }
+            checkPage()
+        })
+        $("#less").click(function () {
+            page = 0
+            $("#myBody").empty();
+            init()
+            checkPage()
+        })
+
         function init() {
             $.ajax({
                 url: 'http://localhost:8080/api/blogs',
