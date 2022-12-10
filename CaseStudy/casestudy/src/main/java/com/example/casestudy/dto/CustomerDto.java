@@ -1,6 +1,6 @@
 package com.example.casestudy.dto;
 
-import com.example.casestudy.model.CustomerType;
+import com.example.casestudy.model.customer.CustomerType;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -37,6 +37,7 @@ public class CustomerDto implements Validator {
     @NotBlank(message = "Address cannot be left blank ")
     @Pattern(regexp = "^[0-9]{1,3}[ ]\\p{Lu}\\p{Ll}+(\\s\\p{Lu}\\p{Ll}+)*$")
     private String address;
+
     private CustomerType customerTypeId;
 
     public CustomerDto()     {

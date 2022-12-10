@@ -1,7 +1,7 @@
 package com.example.casestudy.controller;
 
 import com.example.casestudy.dto.CustomerDto;
-import com.example.casestudy.model.Customer;
+import com.example.casestudy.model.customer.Customer;
 import com.example.casestudy.service.ICustomerService;
 import com.example.casestudy.service.ICustomerTypeService;
 import org.springframework.beans.BeanUtils;
@@ -14,8 +14,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/customer")

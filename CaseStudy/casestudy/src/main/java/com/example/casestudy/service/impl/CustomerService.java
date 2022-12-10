@@ -1,6 +1,6 @@
 package com.example.casestudy.service.impl;
 
-import com.example.casestudy.model.Customer;
+import com.example.casestudy.model.customer.Customer;
 import com.example.casestudy.repository.customer.ICustomerRepository;
 import com.example.casestudy.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
