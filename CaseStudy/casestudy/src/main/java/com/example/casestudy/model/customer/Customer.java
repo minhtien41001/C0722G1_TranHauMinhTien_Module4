@@ -10,12 +10,8 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String name;
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date dateOfBirth;
-
+    private String dateOfBirth;
     private int gender;
     private String idCard;
     private String phoneNumber;
@@ -27,18 +23,6 @@ public class Customer {
     private CustomerType customerType;
 
     public Customer() {
-    }
-
-    public Customer(int id, String name, Date dateOfBirth, int gender, String idCard, String phoneNumber, String email, String address, CustomerType customerType) {
-        this.id = id;
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
-        this.idCard = idCard;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.address = address;
-        this.customerType = customerType;
     }
 
     public int getId() {
@@ -57,11 +41,11 @@ public class Customer {
         this.name = name;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -71,14 +55,6 @@ public class Customer {
 
     public void setGender(int gender) {
         this.gender = gender;
-    }
-
-    public CustomerType getCustomerType() {
-        return customerType;
-    }
-
-    public void setCustomerType(CustomerType customerType) {
-        this.customerType = customerType;
     }
 
     public String getIdCard() {
@@ -113,11 +89,11 @@ public class Customer {
         this.address = address;
     }
 
-    public CustomerType getCustomerTypeId() {
+    public CustomerType getCustomerType() {
         return customerType;
     }
 
-    public void setCustomerTypeId(CustomerType customerType) {
+    public void setCustomerType(CustomerType customerType) {
         this.customerType = customerType;
     }
 }

@@ -37,29 +37,29 @@
         <a href="/customer/list"><i class="fa-solid fa-backward"></i> Back to Customer list</a>
     </p>
 
-<!--    <c:if test="${mess!=null}">-->
-<!--        <c:if test="${check}">-->
-<!--            <div class="justify-content-center d-flex">-->
-<!--                <div class="alert alert-success alert-dismissible fade show w-50 text-center">-->
-<!--                    <strong>Congratulations!</strong> ${mess}-->
-<!--                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </c:if>-->
+    <!--    <c:if test="${mess!=null}">-->
+    <!--        <c:if test="${check}">-->
+    <!--            <div class="justify-content-center d-flex">-->
+    <!--                <div class="alert alert-success alert-dismissible fade show w-50 text-center">-->
+    <!--                    <strong>Congratulations!</strong> ${mess}-->
+    <!--                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </c:if>-->
 
-<!--        <c:if test="${!check}">-->
-<!--            <div class="justify-content-center d-flex">-->
-<!--                <div class="alert alert-danger alert-dismissible fade show w-50 text-center">-->
-<!--                    <strong>Sorry!</strong> ${mess}-->
-<!--                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </c:if>-->
-<!--    </c:if>-->
+    <!--        <c:if test="${!check}">-->
+    <!--            <div class="justify-content-center d-flex">-->
+    <!--                <div class="alert alert-danger alert-dismissible fade show w-50 text-center">-->
+    <!--                    <strong>Sorry!</strong> ${mess}-->
+    <!--                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </c:if>-->
+    <!--    </c:if>-->
 
     <div class="d-flex justify-content-center">
 
-        <form class="w-50 border border-2 border-success p-3 rounded" th:object="${customerDto}" action="/customer/save"
+        <form class="w-50 border border-2 border-success p-3 rounded" th:object="${customerDto}" action="/customer/update"
               method="post">
             <div class="form-group">
                 <label for="name" class="h6" >Name:</label>

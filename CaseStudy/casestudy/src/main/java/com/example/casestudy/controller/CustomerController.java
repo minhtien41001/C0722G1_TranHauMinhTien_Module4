@@ -45,9 +45,9 @@ public class CustomerController {
         return "customer/create";
     }
 
-    @PostMapping("/create")
+    @PostMapping("/save")
     public String saveCustomer(@Validated @ModelAttribute CustomerDto customerDto,
-                               BindingResult bindingResult, RedirectAttributes redirectAttributes){
+                               BindingResult bindingResult){
         if (bindingResult.hasErrors()){
             return "customer/create";
         }else {
@@ -57,5 +57,28 @@ public class CustomerController {
             return "redirect:/customer/list";
         }
     }
+
+    @GetMapping("/edit/{id}")
+    public String editCustomer( @PathVariable int id,Model model){
+        model.addAttribute("customerDto",iCustomerService.findById(id));
+        model.addAttribute("listCustomerType",iCustomerTypeService.findAll());
+        return "customer/edit";
+    }
+
+    @PostMapping("/update")
+    public String updateCustomer(@Validated @ModelAttribute CustomerDto customerDto, BindingResult bindingResult){
+        if (bindingResult.hasFieldErrors()){
+            return "customer/edit";
+        }else {
+            Customer customer = new Customer();
+            BeanUtils.copyProperties(customerDto,customer);
+            iCustomerService.save(customer);
+            return "redirect:/customer/list";
+        }
+    }
+
+
+
+
 
 }

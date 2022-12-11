@@ -17,8 +17,8 @@ public class CustomerDto implements Validator {
     @Pattern(regexp = "^\\p{Lu}\\p{Ll}+(\\s\\p{Lu}\\p{Ll}+)*$",message = "name must be in correct format")
     private String name;
 
-    @DateTimeFormat(pattern = "DD-MM-YYYY")
-    private Date dateOfBirth;
+    @DateTimeFormat(pattern = "DD/MM/YYYY")
+    private String dateOfBirth;
 
     private boolean gender;
 
@@ -35,10 +35,10 @@ public class CustomerDto implements Validator {
     private String email;
 
     @NotBlank(message = "Address cannot be left blank ")
-    @Pattern(regexp = "^[0-9]{1,3}[ ]\\p{Lu}\\p{Ll}+(\\s\\p{Lu}\\p{Ll}+)*$")
+    @Pattern(regexp = "^\\p{Lu}\\p{Ll}+(\\s\\p{Lu}\\p{Ll}+)*$",message = "Address must be in the correct format")
     private String address;
 
-    private CustomerType customerTypeId;
+    private CustomerType customerType;
 
     public CustomerDto()     {
     }
@@ -59,11 +59,11 @@ public class CustomerDto implements Validator {
         this.name = name;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -107,12 +107,12 @@ public class CustomerDto implements Validator {
         this.address = address;
     }
 
-    public CustomerType getCustomerTypeId() {
-        return customerTypeId;
+    public CustomerType getCustomerType() {
+        return customerType;
     }
 
-    public void setCustomerTypeId(CustomerType customerTypeId) {
-        this.customerTypeId = customerTypeId;
+    public void setCustomerType(CustomerType customerType) {
+        this.customerType = customerType;
     }
 
     @Override
