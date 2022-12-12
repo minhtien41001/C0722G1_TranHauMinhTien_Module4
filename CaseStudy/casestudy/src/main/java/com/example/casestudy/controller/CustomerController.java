@@ -77,7 +77,12 @@ public class CustomerController {
         }
     }
 
-
+    @PostMapping("/delete")
+    public String delete(@RequestParam int id,RedirectAttributes redirectAttributes){
+        iCustomerService.delete(id);
+        redirectAttributes.addFlashAttribute("mess","successful delete");
+        return "redirect:/customer";
+    }
 
 
 
