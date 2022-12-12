@@ -31,7 +31,7 @@ public class Contract {
     @ManyToOne(cascade = CascadeType.ALL)
     private Customer customer;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.REMOVE)
     private Facility facility;
 
     public Contract() {

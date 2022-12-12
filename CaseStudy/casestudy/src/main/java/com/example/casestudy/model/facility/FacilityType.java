@@ -1,9 +1,9 @@
 package com.example.casestudy.model.facility;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.example.casestudy.model.customer.Customer;
+
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class FacilityType {
@@ -14,7 +14,16 @@ public class FacilityType {
 
     private String name;
 
+    @OneToMany(mappedBy = "facilityType")
+    private Set<Facility> facilities;
+
     public FacilityType() {
+    }
+
+    public FacilityType(Integer id, String name, Set<Facility> facilities) {
+        this.id = id;
+        this.name = name;
+        this.facilities = facilities;
     }
 
     public Integer getId() {
@@ -31,5 +40,13 @@ public class FacilityType {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Facility> getFacilities() {
+        return facilities;
+    }
+
+    public void setFacilities(Set<Facility> facilities) {
+        this.facilities = facilities;
     }
 }

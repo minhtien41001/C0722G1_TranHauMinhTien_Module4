@@ -2,6 +2,7 @@ package com.example.casestudy.controller;
 
 import com.example.casestudy.dto.CustomerDto;
 import com.example.casestudy.model.customer.Customer;
+import com.example.casestudy.model.customer.CustomerType;
 import com.example.casestudy.service.ICustomerService;
 import com.example.casestudy.service.ICustomerTypeService;
 import org.springframework.beans.BeanUtils;
@@ -14,6 +15,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/customer")
@@ -66,8 +69,9 @@ public class CustomerController {
     }
 
     @PostMapping("/update")
-    public String updateCustomer(@Validated @ModelAttribute CustomerDto customerDto, BindingResult bindingResult){
+    public String updateCustomer(@Validated @ModelAttribute CustomerDto customerDto, BindingResult bindingResult,Model model){
         if (bindingResult.hasFieldErrors()){
+            model.addAttribute("listCustomerType",iCustomerTypeService.findAll());
             return "customer/edit";
         }else {
             Customer customer = new Customer();
@@ -77,13 +81,10 @@ public class CustomerController {
         }
     }
 
-    @PostMapping("/delete")
-    public String delete(@RequestParam int id,RedirectAttributes redirectAttributes){
+
+    @GetMapping("/delete")
+    public String deleteCustomer(@RequestParam(value = "idDelete") Integer id){
         iCustomerService.delete(id);
-        redirectAttributes.addFlashAttribute("mess","successful delete");
-        return "redirect:/customer";
+        return "redirect:/customer/list";
     }
-
-
-
 }
