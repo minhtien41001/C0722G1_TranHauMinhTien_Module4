@@ -20,8 +20,6 @@ public class Contract {
 
     private String deposit;
 
-    private int deleteStatus;
-
     @OneToMany(mappedBy = "contract")
     private Set<ContractDetail> contractDetails;
 
@@ -75,14 +73,6 @@ public class Contract {
 
     public void setContractDetails(Set<ContractDetail> contractDetails) {
         this.contractDetails = contractDetails;
-    }
-
-    public int getDeleteStatus() {
-        return deleteStatus;
-    }
-
-    public void setDeleteStatus(int deleteStatus) {
-        this.deleteStatus = deleteStatus;
     }
 
     public Employee getEmployee() {
